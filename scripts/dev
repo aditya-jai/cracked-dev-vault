@@ -1,0 +1,22 @@
+#!/bin/bash
+
+COMMAND=$1
+shift
+
+case "$COMMAND" in
+  log)
+    echo "📝 Logging today's session to brain/log.md"
+    echo "## $(date)" >> brain/log.md
+    ;;
+  bug)
+    echo "🐞 Logging bug to brain/bugs.md"
+    echo "- [$(date)] $*" >> brain/bugs.md
+    ;;
+  done)
+    echo "✅ Logged as done"
+    echo "- [$(date)] $*" >> brain/log.md
+    ;;
+  *)
+    echo "Usage: dev [log|bug|done]"
+    ;;
+esac
